@@ -8,8 +8,7 @@
 
 import Foundation
 
-struct Concentration
-{
+struct Concentration{
     private(set) var cards = [Card]()  
     
     var flipCount = 0

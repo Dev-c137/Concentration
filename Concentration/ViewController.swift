@@ -62,13 +62,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-    private func randomBackground(){
-        if self.view.backgroundColor == UIColor.black{
-            view.backgroundColor = UIColor.white
-        } else {
-            view.backgroundColor = UIColor.black
-        }
-    }
+    
     
     @IBAction func newGame(_ sender: UIButton) {
         resetGame()
@@ -76,12 +70,13 @@ class ViewController: UIViewController {
     
     private func resetGame(){
         game = Concentration(numberOfPairOfCards: numberOfPairsOfCards)
-        var newTheme = Theme()
-        emojiChoices = newTheme.selectTheme()
+        let newTheme = Theme()
+        emojiChoices = newTheme.randomTheme
+        view.backgroundColor = newTheme.newBackground
+        viewDidLoad()
         updateFlipCountLabel()
         updateScore()
         updateViewFromModel()
-        randomBackground()
     }
     
     private func updateViewFromModel(){
